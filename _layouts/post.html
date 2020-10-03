@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<small>{{ page.date | date: "%-d %B %Y" }}</small>
+<h1>{{ page.title }}</h1>
+
+{% if page.thumbnail %}
+    	<a href="{{ page.thumbnail }}" data-lightbox="{{ page.title }}"> <img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="frame img-thumb" ></a>
+{% endif %}
+
+
+{% if page.author %}
+<p class="view">by {{ page.author }}</p>
+{% endif %}
+
+{{content}}
+
+<div class="clear-both"></div>
+
+{% if page.gallery %}
+<h3 id="gallery">Gallery:</h3>
+<div class="gallery"  >
+	{% for image in site.static_files %}
+		{% if image.path contains page.gallery %}
+			<a href="{{ image.path }}" data-lightbox="{{ page.title}}"> <img src="{{ image.path }}" alt="{{ image.name }}" class="frame gallery-thumb" ></a>
+		{% endif %}
+	{% endfor %}
+<div class="clear-both"></div>
+</div>
+{% endif %}
+
+<div class="clear-both"></div>
+
+{% if page.tags %}
+  <small class="tags"> <h3 id="tags">Tags:</h3> <em>{{ page.tags | join: "</em> / <em>" }}</em></small>
+{% endif %}

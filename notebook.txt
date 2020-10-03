@@ -1,0 +1,78 @@
+example
+
+[![](/assets/images/BBC-microbit.jpg)](/assets/images/BBC-microbit.jpg){:data-lightbox="asda"}
+
+![image-title-here](/assets/images/BBC-microbit.jpg){:classs="img-in-text"}
+
+
+
+Projekti za dodati
+
+DONE 1. 3 way pad za eagle library
+
+DONE 2. dodati 4 relay plocicu, sa ispravkom bez optokaplera, napraviti neki brzinski ruting
+
+DONE 3. dodati esp plocicu osnovnu, sherati open sve, i bom
+
+DONE 4. sherati samirov kod za pumpu... prica o relay plocici od electrdragona, kratki post
+uejdno pisati za cloudmqtt i mqtt dashboard za android...
+
+5. sherati ideju za hepek kao na githubu sto sam napravio... 
+
+6. Hepek aplikacija za mobitel, samo sherati ideju sa datumom kada se sve pojavilo itd.. 
+
+7. Hepek weather station..
+
+
+
+micro:bit program
+
+1. Predgovor
+
+2. Potrebni alati i zasto
+
+3. Cilj i kako ga realizovati
+
+4. Zadatci za ucenje
+========================
+	- Varijable
+		Kreiraj more varijabli, uzmi podatke, ispisi na ekranu itd itd itd...
+		Bitna razlika, brojevi, stringovi, nizovi, bolean.. vidjeti ostale pojedinosti
+		MOZDA TREBA ne forsirati float brijeve jer je to izuzetno ne prakticno sa ovim debilnim interfejsom
+		SKOUP VARIJABLE - ovo obraditi u sklopu funkcija... ili samo napomenuti jer su u micro:itu izgleda sve globalne...
+		POHRANJIVANJE VRIJEDNOSTI sa senzora u varijable
+	- Logika, poredjenja itd..
+	- Matematicke operacije
+		- primarno zadatci rjesavanja polinoma jer u tome su i ostale formule
+	- loops
+	- functions
+
+========================
+OVO SU ODVOJENE TEME I PONEKADA SE REFERIRAM NA OVE DOLE TEME U ZADATCIMA IZNAD....
+
+	- Igranje sa menijima za input podataka, dugme A za odabir varijable, dugme B za povecavanje, potom ogranicavanje povecavanja.. zatim smanjivanje i ostalo..... zadatak da se sa tim igra sto vise...ukljuciti i protresanje i PIN0-2 za igranje sa inputom!
+	- RANDOM PODATCI
+	- MUSIC
+	- COMPAS
+	- TEMPERATURE
+		- Citaj temperaturu i ispisi je
+	- RADIO (moze i na preskoke)
+		- posalji broj na drugi micro:bit
+		- posalji rijec na drugi mico:bit
+	- TEMPERATURE + RADIO
+		- Dva micro:bit-a, pitaj onaj na vani koja je temperatura i prikazi na sovm ekranu!!! (moj zadatak)
+	- AKCELEROMETAR
+		- protresi, nesto da se desi
+	- LIGHT LEVEL
+		- na osnovu light levela prikazi razlicito lice
+	- PIN INPUT
+		- kao touch sensor, 0,1,2
+========================
+	Dodatci, prosirenja, breadboard, dodatci za digital input/output itd...
+
+
+
+++++++++++++++++++++++++++++++
+
+
+Mi smo imali sreću pa smo uz pomoć nekih dragih ljudi iz [croatianmakers](http://croatianmakers.hr) dobili jedan set od 10 micro:bit razvojnih pločica te je sam proces učenja dosta zabavniji i s obzirom da pomenuta platforma ima više IO elemenata, zadatci su uglavnom dosta zabavni ali i ozbiljni. A što smatram da ne bi bilo tako da smo bili osuđeni da ove osnove prolazimo kroz neke programe koji se izvršavaju u terminalu.

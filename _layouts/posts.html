@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+{% if page.category == "all" %}
+  {% assign posts = site.posts %}
+{% else %}
+  {% assign posts = site.categories[page.category] %}
+{% endif %}
+
+{% for post in posts %}
+<div class="post">
+    <small>{{ post.date | date: "%-d %B %Y" }}</small>
+    <h1>{{ post.title }}</h1>
+    <!-- <p class="view">by {{ post.author | default: site.author }} </p> -->
+    {% if post.thumbnail %}
+    <a href="{{ post.url }}"> <img src="{{ post.thumbnail }}" alt="{{ post.title }}" class="frame img-thumb" ></a>
+    {% endif %}
+    <p>{{ post.excerpt }}</p>
+    <p>
+        {% if post.tags %}
+        <small class="tags"> <h3 id="tags" class="inlineh3">Tags:</h3> <em>{{ post.tags | join: "</em> / <em>" }}</em></small> {% endif %}
+    </p>
+    <a href="{{ post.url }}">READ MORE</a>
+</div>
+<hr>
+{% endfor %}

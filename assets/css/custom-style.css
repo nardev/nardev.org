@@ -1,0 +1,62 @@
+/*
+ nardev.org custom css
+*/
+.container {
+  max-width: 800px;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-top: 1px dashed #b5e853;
+    padding: 20px 0;
+    margin: 0 0 40px 0;
+    text-align: center;
+}
+
+
+.avatar {width: 100px;float: left; border: 1px solid #555; margin: 0px 15px 0px 0px; }
+.btn {display: inline-block; padding: 4px 13px; border-radius: 2px; border: 0px solid rgba(0, 0, 0, 0.7); color: rgba(255, 255, 255, 0.8); font-family: Helvetica, Arial, sans-serif; font-weight: bold; font-size: 13px; }
+.btn:hover {background: none; }
+.btn .icon {display: inline-block; width: 16px; height: 16px; margin: 1px 8px 0 0; float: left; } 
+.btn-github {background-color: #444; }
+.btn-github:hover {background-color: #2b2b2b; }
+.btn-linkedin {background-color: #007bb6; }
+.btn-linkedin:hover {background-color: #005983; }
+.btn-instagram {background-color: #3f729b; }
+.btn-instagram:hover {background-color: #305777; }
+.btn-twitter {background-color: #55acee; }
+.btn-twitter:hover {background-color: #2795e9; }
+.btn-youtube {background-color: #cb2027; }
+.btn-youtube:hover {background-color: #9f191f; }
+.social { text-align: center; opacity: 0.25; }
+.social:hover { opacity: 1; }
+.curtain {}
+.curtain:hover {  }
+section#menu {margin: 0px; text-align: left; }
+section#menu a:before{content: "./"; }
+
+hr { margin: 15px 0px; }
+.post { }
+.tags > em { background: #b5e853; color: #111; border-radius: 5px; padding: 3px 5px; }
+
+pre.highlight { color: #d0d0d0; width: 100%; margin: 0px; height: 300px; overflow: scroll;}
+
+table, tr, td { border: 0px; padding: 0px; margin: 0px; }
+
+.gallery {clear: both; margin: 10px 0px 20px; padding: 10px 0px; border-top: 2px dashed #b5e853; border-bottom: 2px dashed #b5e853; text-align: center; }
+.frame {border: 2px solid #b5e853; border-radius: 4px; }
+.gallery-thumb {vertical-align: top; width: 7rem; margin: 5px; }
+.img-thumb {vertical-align: top; width: 7rem; margin-right: 10px; float: left; }
+.img-in-text { display: block;  }
+.imagefloat {float: left; clear: both; }
+.clear-both {clear: both; }
+.inlineh3 { display: inline; }
+
+
+.content { font-weight: bold; color: #b5e853; }
+.content ul > li { font-weight: normal; list-style: none; margin-left: -2.7em; color: #FFFFFF;   }
+
+.nesto ol li {color: #b5e853; font-weight: bold; margin-bottom: 5px; }
+.nesto ol li > p {color: #ffffff; display: inline; }
+.nesto ol {list-style-type:none; padding: 0px; }
