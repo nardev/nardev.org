@@ -8,13 +8,13 @@ thumbnail: /assets/posts/projects/automate-esp8266-programming/automate-esp8266-
 excerpt_separator: <!--more-->
 ---
 
-From time to time i need to program several hundred of ESP-12F modules for my projects. First time i did it it was changing the module on the programmer and than repeating the command.
+From time to time i need to program several hundred ESP-12F modules for my projects. First time i did it, i was changing the module on the programmer and then repeating the command.
 
 However, by doing that it was hard to do programming at several programmers at once and also it required all my attention when the script finished etc.
 
-So i had to automate it a bit, but i didn't want to throw my self into codding so much. Just the most simple way to do it was an option.
+So i had to automate it a bit, but i didn't want to throw myself into codding so much. Just the most simple way to do it was an option.
 
-So here we are. The whole solution is just a simple udev rule which sets the programming script to execute. As i said "it sets the script". Because, udev just triggers and doesn't handle runtime environment as when you run program in terminal. So for that purpose, i used "at now".
+So here we are. The whole solution is just a simple udev rule which sets the programming script to execute. As i said "it sets the script". Because, udev just triggers and doesn't handle the runtime environment as when you run a program in terminal. So for that purpose, i used "at now".
 
 <!--more-->
 
@@ -24,7 +24,7 @@ So here we are. The whole solution is just a simple udev rule which sets the pro
  - Get your firmware.bin and if you need spiffs.bin files
  - UART programmer, I used this one [Frogboard Frogo ESP-12F](https://www.tindie.com/products/fred_iot/esp8266-frogboard-frogo-pins-esp-12e-dev-board/)
 
-   ** Be carefull about the programmer, another one that i was using had very poor construction, i had to hold module by hand and also the button on it was just turning on/off the ESP-12F module not the programmer so i had to plug/unplug the programmer in order to trigger the udev rule. Maybe it was possible to load/unload the module differently but i would make some other problems. **
+   ** Be careful about the programmer, another one that i was using had very poor construction, i had to hold module by hand and also the button on it was just turning on/off the ESP-12F module not the programmer so i had to plug/unplug the programmer in order to trigger the udev rule. Maybe it was possible to load/unload the module differently but i would make some other problems. **
 
 
 ### Step 1:  
@@ -33,7 +33,7 @@ So here we are. The whole solution is just a simple udev rule which sets the pro
 
   Make file "/etc/udev/rules.d/esptool.rules"
 
-  Paste following into the file and change accordingly the path for the script and aslo check the vendor number for your programmer. You can probably find out more once you plug your device and monitor it like this "udevadm monitor --kernel --property --subsystem-match=usb"
+  Paste following into the file and change accordingly the path for the script and also check the vendor number for your programmer. You can probably find out more once you plug your device and monitor it like this "udevadm monitor --kernel --property --subsystem-match=usb"
 
 {% highlight bash %}
  # esptool auto programmer
@@ -42,7 +42,7 @@ So here we are. The whole solution is just a simple udev rule which sets the pro
 
 ### Step 2:  
   
-  Copy/Paste/Edit the followind script with appropriate data and also set it executable by the same user as the one who has esptool.py set in it's environment.
+  Copy/Paste/Edit the following script with appropriate data and also set it executable by the same user as the one who has esptool.py set in it's environment.
 
 {% highlight bash %}  
  #!/bin/bash  
@@ -57,7 +57,7 @@ So here we are. The whole solution is just a simple udev rule which sets the pro
  USB_DEVICE=$1  
  # As i was using multiple programmers, i separated the log into different files.  
  # However, it's just distinguished per the device number at the moment.  
- # The programmer will usually be registered at first available number.  
+ # The programmer will usually be registered at the first available number.  
  #ESPTOOL_LOG="/tmp/auto-esptool.log"  
  ESPTOOL_LOG="/tmp/auto-esptool-$2.log"  
  su - nardev -c 'echo -e "\n----------------------------------------\nPORT: 	$USB_DEVICE\n----------------------------------------\n >> $ESPTOOL_LOG"'  
@@ -66,11 +66,11 @@ So here we are. The whole solution is just a simple udev rule which sets the pro
 {% endhighlight %}
 
 
-Feel free to adjust script according to your needs. There is nothing complex, just simple calling the esptool.py with parameters and passing the output to a log file.
+Feel free to adjust the script according to your needs. There is nothing complex, just simple calling the esptool.py with parameters and passing the output to a log file.
 
-The execution si set under the same user so that there is no permission problem when the log is printed.
+The execution is set under the same user so that there is no permission problem when the log is printed.
 
-After you finish, you can grep your logs, catch all MAC addresses in rder to track the devices. It would be nice to add some timestamp, maybe even to use esptool.py to burn in your serial into the chip at the same time.
+After you finish, you can grep your logs, catch all MAC addresses in order to track the devices. It would be nice to add some timestamp, maybe even to use esptool.py to burn in your serial into the chip at the same time.
 
 That's about all.
 
