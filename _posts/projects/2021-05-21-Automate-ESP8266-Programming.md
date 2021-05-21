@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "Automate ESP8266 (ESP12F) Programming"
+title:  "Automate ESP8266 Programming"
 date:   2021-05-21 07:40:41 +0100
 categories: projects
 tags: ESP8166 ESP12F ESP-12F ESP32 ESP-12E
-thumbnail: /assets/posts/projects/skripta-za-pregled-racuna/skripta-za-pregled-racuna-01.png
+thumbnail: /assets/posts/projects/automate-esp8266-programming/automate-esp8266-programming.jpg
 excerpt_separator: <!--more-->
 ---
 
@@ -16,16 +16,18 @@ So i had to automate it a bit, but i didn't want to throw my self into codding s
 
 So here we are. The whole solution is just a simple udev rule which sets the programming script to execute. As i said "it sets the script". Because, udev just triggers and doesn't handle runtime environment as when you run program in terminal. So for that purpose, i used "at now".
 
-Pre-required:
+<!--more-->
+
+### Pre-required:
  - esptool.py (https://github.com/espressif/esptool/blob/master/esptool.py)
  - Install "at" with (apt-get install at)
  - Get your firmware.bin and if you need spiffs.bin files
- - UART programmer, I used this one https://www.tindie.com/products/fred_iot/esp8266-frogboard-frogo-pins-esp-12e-dev-board/
+ - UART programmer, I used this one [Frogboard Frogo ESP-12F](https://www.tindie.com/products/fred_iot/esp8266-frogboard-frogo-pins-esp-12e-dev-board/)
 
-   **Be carefull about the programmer, another one that i was using had very poor construction, i had to hold module by hand and also the button on it was just turning on/off the ESP-12F module not the programmer so i had to plug/unplug the programmer in order to trigger the udev rule. Maybe it was possible to load/unload the module differently but i would make some other problems.**
+   ** Be carefull about the programmer, another one that i was using had very poor construction, i had to hold module by hand and also the button on it was just turning on/off the ESP-12F module not the programmer so i had to plug/unplug the programmer in order to trigger the udev rule. Maybe it was possible to load/unload the module differently but i would make some other problems. **
 
 
-Step 1:  
+### Step 1:  
    
   Set udev rule:
 
@@ -38,7 +40,7 @@ Step 1:
  ACTION=="add", KERNEL=="ttyUSB[0-1]", SUBSYSTEM=="tty", ATTRS{vendor}=="0x8086", RUN+="/opt/auto-esptool-run.sh /dev/%k %n | at now"
 {% endhighlight %}
 
-Step 2:  
+### Step 2:  
   
   Copy/Paste/Edit the followind script with appropriate data and also set it executable by the same user as the one who has esptool.py set in it's environment.
 
