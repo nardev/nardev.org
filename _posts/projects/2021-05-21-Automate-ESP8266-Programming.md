@@ -44,7 +44,7 @@ So here we are. The whole solution is just a simple udev rule which sets the pro
   
   Copy/Paste/Edit the following script with appropriate data and also set it executable by the same user as the one who has esptool.py set in it's environment.
 
-{% highlight bash %}  
+{% highlight bash %}
  #!/bin/bash  
  exit 0 # comment if you want to use the auto procedure  
  ESPTOOL_PATH=""  
