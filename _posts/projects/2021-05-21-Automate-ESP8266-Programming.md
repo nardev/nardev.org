@@ -33,39 +33,42 @@ Step 1:
 
   Paste following into the file and change accordingly the path for the script and aslo check the vendor number for your programmer. You can probably find out more once you plug your device and monitor it like this "udevadm monitor --kernel --property --subsystem-match=usb"
 
-  # esptool auto programmer
-  ACTION=="add", KERNEL=="ttyUSB[0-1]", SUBSYSTEM=="tty", ATTRS{vendor}=="0x8086", RUN+="/opt/auto-esptool-run.sh /dev/%k %n | at now"
-
+	{% highlight bash %}
+  		# esptool auto programmer
+  		ACTION=="add", KERNEL=="ttyUSB[0-1]", SUBSYSTEM=="tty", ATTRS{vendor}=="0x8086", RUN+="/opt/auto-esptool-run.sh /dev/%k %n | at now"
+	{% endhighlight %}
 
 Step 2:  
   
   Copy/Paste/Edit the followind script with appropriate data and also set it executable by the same user as the one who has esptool.py set in it's environment.
 
-	#!/bin/bash
+		{% highlight bash %}  
+			#!/bin/bash  
 	
-	exit 0 # comment if you want to use the auto procedure
+		exit 0 # comment if you want to use the auto procedure  
 	
-	ESPTOOL_PATH=""
-	FIRMWARE_PATH=""
-	SPIFFS_PATH=""
+		ESPTOOL_PATH=""  
+		FIRMWARE_PATH=""  
+		SPIFFS_PATH=""  
 
-	# If you want to get sound notification once the script exits or finish programming.
-	OUTPUT_TERMINAL="/dev/pts/0"
+		# If you want to get sound notification once the script exits or finish programming.  
+		OUTPUT_TERMINAL="/dev/pts/0"  
 
-	# the user under which the python and esptool is set
-	BASH_USER=""
-	USB_DEVICE=$1
+		# the user under which the python and esptool is set  
+		BASH_USER=""  
+		USB_DEVICE=$1  
 	
-	# As i was using multiple programmers, i separated the log into different files.
-	# However, it's just distinguished per the device number at the moment.
-	# The programmer will usually be registered at first available number.
-	#ESPTOOL_LOG="/tmp/auto-esptool.log"
+		# As i was using multiple programmers, i separated the log into different files.  
+		# However, it's just distinguished per the device number at the moment.  
+		# The programmer will usually be registered at first available number.  
+		#ESPTOOL_LOG="/tmp/auto-esptool.log"  
 
-	ESPTOOL_LOG="/tmp/auto-esptool-$2.log"
+		ESPTOOL_LOG="/tmp/auto-esptool-$2.log"  
 	
-	su - nardev -c 'echo -e "\n----------------------------------------\nPORT: $USB_DEVICE\n----------------------------------------\n >> $ESPTOOL_LOG"'
-	su - $BASH_USER -c "$ESPTOOL_PATH --baud 1500000 --port $USB_DEVICE write_flash 0x00000000 $FIRMWARE_PATH 0x00200000 $SPIFFS_PATH >> $ESPTOOL_LOG"
-	echo -ne '\007' > $OUTPUT_TERMINAL
+		su - nardev -c 'echo -e "\n----------------------------------------\nPORT: 	$USB_DEVICE\n----------------------------------------\n >> $ESPTOOL_LOG"'  
+		su - $BASH_USER -c "$ESPTOOL_PATH --baud 1500000 --port $USB_DEVICE write_flash 0x00000000 $FIRMWARE_PATH 0x00200000 $SPIFFS_PATH >> $ESPTOOL_LOG"  
+		echo -ne '\007' > $OUTPUT_TERMINAL  
+	{% endhighlight %}
 
 
 Feel free to adjust script according to your needs. There is nothing complex, just simple calling the esptool.py with parameters and passing the output to a log file.
@@ -77,8 +80,3 @@ After you finish, you can grep your logs, catch all MAC addresses in rder to tra
 That's about all.
 
 
-{% highlight ruby %}
-def foo
-  puts 'foo'
-end
-{% endhighlight %}
