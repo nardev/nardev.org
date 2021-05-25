@@ -60,3 +60,5 @@ table, tr, td { border: 0px; padding: 0px; margin: 0px; }
 .nesto ol li {color: #b5e853; font-weight: bold; margin-bottom: 5px; }
 .nesto ol li > p {color: #ffffff; display: inline; }
 .nesto ol {list-style-type:none; padding: 0px; }
+
+figure.highlight { margin: 0px; }
