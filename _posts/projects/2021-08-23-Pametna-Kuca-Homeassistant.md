@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Pametna kuća, Homeassistant sa Shelly, Sonoff i Xiaomi opremom."
-date:   2021-07-23 05:00:00 +0100
+date:   2021-08-23 05:31:00 +0100
 categories: projects
 tags: Homeassistant Pametna kuća, Sarajevo, Sonoff, Shelly, Xiaomi
 thumbnail: /assets/posts/projects/pametna-kuca-homeassistant/pametna-kuca-homeassistant.jpg
