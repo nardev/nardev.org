@@ -60,13 +60,15 @@ So here we are. The whole solution is just a simple udev rule which sets the pro
  # The programmer will usually be registered at the first available number.  
  #ESPTOOL_LOG="/tmp/auto-esptool.log"  
  ESPTOOL_LOG="/tmp/auto-esptool-$2.log"  
- su - nardev -c 'echo -e "\n----------------------------------------\nPORT: 	$USB_DEVICE\n----------------------------------------\n >> $ESPTOOL_LOG"'  
+ su - [your-user-name] -c 'echo -e "\n----------------------------------------\nPORT: 	$USB_DEVICE\n----------------------------------------\n >> $ESPTOOL_LOG"'  
  su - $BASH_USER -c "$ESPTOOL_PATH --baud 1500000 --port $USB_DEVICE write_flash 0x00000000 $FIRMWARE_PATH 0x00200000 $SPIFFS_PATH >> $ESPTOOL_LOG"  
  echo -ne '\007' > $OUTPUT_TERMINAL  
 {% endhighlight %}
 
 
 Feel free to adjust the script according to your needs. There is nothing complex, just simple calling the esptool.py with parameters and passing the output to a log file.
+
+Change [your-user-name] part of the script to your user. The reason was that esptool and the enviromnet was available only for that particular user. I believe it's gonna be the case with you. The script is initiated by the system so unless you have the env set for root, you would not be able to run the esptool.
 
 The execution is set under the same user so that there is no permission problem when the log is printed.
 
