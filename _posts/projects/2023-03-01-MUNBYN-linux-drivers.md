@@ -3,7 +3,7 @@ layout: post
 title:  "MUNBYN WiFi With Lynux"
 date:   2023-03-01 15:31:00 -0400
 categories: projects
-tags: label, printer, linux, munbyn
+tags: label printer linux munbyn
 thumbnail: /assets/posts/projects/munbyn-linux-drivers/munbyn-wifi-printer.png
 excerpt_separator: <!--more-->
 ---
