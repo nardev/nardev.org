@@ -5,6 +5,6 @@ author: Vedran Alajbegovic
 permalink: /about
 ---
 
-<h4>Need PHP/JS/CSS/HTML job done?</h4>
+<h4>I do code for $!</h4>
 Contact me: vedran@nardev.org
 
