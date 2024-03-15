@@ -4,7 +4,7 @@ title:  "Introducing the `Full-Stack IoT Developer`: Navigating the Challenges o
 date:   2024-03-15 01:01:41 -0400
 categories: projects
 tags: Full-Stack IoT Developer
-thumbnail: /assets/images/projects/Full-Stack-IOT-Developer/full-stack-iot-developer.png
+thumbnail:
 excerpt_separator: <!--more-->
 ---
 
