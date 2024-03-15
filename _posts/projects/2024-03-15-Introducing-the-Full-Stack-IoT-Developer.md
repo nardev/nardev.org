@@ -5,8 +5,9 @@ date:   2024-03-15 01:01:41 +0100
 categories: projects
 tags: 'Full-Stack IoT Developer'
 thumbnail: /assets/images/projects/Full-Stack-IOT-Developer/full-stack-iot-developer.png
-excerpt_separator: <!--more-->
+excerpt_separator:
 ---
+[![](/assets/images/projects/Full-Stack-IOT-Developer/full-stack-iot-developer.png)](/assets/images/projects/Full-Stack-IOT-Developer/full-stack-iot-developer.png){:data-lightbox="Full-Stack IoT Developer"}
 
 Introducing the "Full-Stack IoT Developer": Navigating the Challenges of a Connected World
 
